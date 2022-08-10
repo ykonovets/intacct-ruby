@@ -67,7 +67,9 @@ module IntacctRuby
 
     def method_missing(method_name, *arguments, &block)
       super unless Function::ALLOWED_TYPES.include? method_name.to_s
+      debugger
 
+      p 3
       # object_type must be the first argument in arguments
       @functions << Function.new(method_name, arguments.shift, *arguments)
     end
